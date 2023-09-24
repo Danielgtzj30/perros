@@ -5,6 +5,8 @@ import pandas as pd
 import plotly.express as px
 import streamlit as st
 import streamlit_authenticator as stauth
+from io import StringIO
+import pdfplumber
 
 #--- User Authentitactor -------
 names = ["Daniel", "Jonny"]
@@ -23,8 +25,20 @@ if authenticator_status == False:
     st.warning("Username/password is incorrect")
 if authenticator_status == None:
     st.warning("Please enter your username and password")
-if authenticator_status == True:
-    st.warning("You have entered")
+#-----------------------InputFile----------------------------------
 
-authenticator.logout("Logout", "sidebar")
-st.sidebar.title(f"Welcome{name}")
+if authenticator_status == True:
+    with st.sidebar:
+        authenticator.logout("Logout", "sidebar")
+        st.title("Libretas")
+    uploaded_file = st.file_uploader("Choose a file")
+    if uploaded_file is not None:
+        with pdfplumber.open(uploaded_file) as pdf:
+            text = ''
+            for page in pdf.pages:
+             text += page.extract_text()
+
+        st.write(text)
+
+
+
