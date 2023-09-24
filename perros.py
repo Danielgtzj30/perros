@@ -40,6 +40,7 @@ if authenticator_status == True:
     learn="Hola"
     preguntaf="Cuantos años tienes?"
     respuestaf="Nose"
+    respuestaqu="Nose"
     if st.checkbox("Learn"):
         st.write(learn)
     if st.checkbox("Flashcards"):
@@ -50,6 +51,8 @@ if authenticator_status == True:
 
     if st.checkbox("Quiz"):
         st.write(preguntaf)
+        res = st.text_input('Type yours answer')
+
 
     
 
