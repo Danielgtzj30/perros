@@ -37,8 +37,17 @@ if authenticator_status == True:
             #text = ''
             for page in pdf.pages:
              text += page.extract_text()
-
-        st.write(text)
+    learn="Hola"
+    preguntaf="Cuantos años tienes?"
+    respuestaf="Nose"
+    if st.button("Learn"):
+        st.write(learn)
+    if st.button("Flashcards"):
+        st.write(preguntaf)
+        if st.button("Give Answer"):
+            st.write(respuestaf)
+    st.button("Quiz")
+    
 
 
 
