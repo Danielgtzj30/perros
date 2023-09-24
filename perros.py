@@ -7,7 +7,7 @@ import streamlit as st
 import streamlit_authenticator as stauth
 from io import StringIO
 import pdfplumber
-
+text = ''
 #--- User Authentitactor -------
 names = ["Daniel", "Jonny"]
 usernames = ["JDaniel", "Djon"]
@@ -34,7 +34,7 @@ if authenticator_status == True:
     uploaded_file = st.file_uploader("Choose a file")
     if uploaded_file is not None:
         with pdfplumber.open(uploaded_file) as pdf:
-            text = ''
+            #text = ''
             for page in pdf.pages:
              text += page.extract_text()
 
