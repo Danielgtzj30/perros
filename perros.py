@@ -40,13 +40,17 @@ if authenticator_status == True:
     learn="Hola"
     preguntaf="Cuantos años tienes?"
     respuestaf="Nose"
-    if st.button("Learn"):
+    if st.checkbox("Learn"):
         st.write(learn)
-    if st.button("Flashcards"):
+    if st.checkbox("Flashcards"):
         st.write(preguntaf)
-        if st.button("Give Answer"):
+        Respuesta = st.button('Show answer!')
+        if Respuesta:
             st.write(respuestaf)
-    st.button("Quiz")
+
+    if st.checkbox("Quiz"):
+        st.write(preguntaf)
+
     
 
 
